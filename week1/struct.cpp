@@ -12,6 +12,8 @@ struct Sinhvien
 
 int main()
 {
+    // Direct declare
+    // Sinhvien sv{"masv", "Nguyen Van A", 7.5, "HN"};
     Sinhvien sv;
     cin >> sv.msv;
     // cin >> sv.name;
