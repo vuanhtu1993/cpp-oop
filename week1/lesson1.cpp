@@ -15,10 +15,10 @@ int main()
         cin >> a[i];
     }
 
-    for (int i = 0; i < n; i++)
+    for (int i : a)
     {
         /* code */
-        cout << a[i];
+        cout << i;
     }
 
     return 0;
