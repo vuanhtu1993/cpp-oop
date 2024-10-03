@@ -1,32 +1,30 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-#include "Employee.cpp"
 #pragma once
+#include "Employee.cpp"
 
-class SalePerson : public Employee
+class Saleperson : public Employee
 {
 private:
+    float bonus;
+    int sale;
     float commission_rate;
-    int sales;
-
 public:
-    SalePerson(){};
-    SalePerson(string name, int salary, int s, float c = 0.1) : Employee(name, salary)
-    {
-        this->commission_rate = c;
-        this->sales = s;
+    Saleperson(string name, int salary, int sale, float commission_rate = 0.1) : Employee(name, salary){
+        this->sale = sale;
+        this->commission_rate = commission_rate;
+    };
+    void setSale(int sale) {
+        this->sale = sale;
     }
-    float getBonus()
-    {
-        return commission_rate * sales;
+    void setCommissionRate(float cr) {
+        commission_rate = cr;
     }
-
-    float getSalary()
-    {
-        return Employee::getSalary() + getBonus();
+    float getBonus() {
+        return sale*commission_rate;
     }
-    friend ostream &operator<<(ostream &out, SalePerson &e)
-    {
-        return out << "Sale man: " << e.getName() << " Salary: " << e.getSalary() + e.getBonus() << endl;
+    float getSalary() {
+        return Employee::getSalary() + getBonus(); 
     }
 };
